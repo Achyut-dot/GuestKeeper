@@ -1,19 +1,55 @@
-<app-home></app-home>
+<div class="container">
+    <app-home></app-home>
 
-<h2>Reservation List</h2>
+    <div class="list-container fade-in">
+        <h2 class="list-title">Reservation List</h2>
 
-<ul *ngIf="reservations.length; else noReservation">
-    <li *ngFor="let reservation of reservations">
-        Guest: {{reservation.guestName}} <br>
-        Email: {{reservation.guestEmail}} <br>
-        Room Number: {{reservation.roomNumber}} <br>
-        Check-In Date: {{reservation.checkInDate}} <br>
-        Check-Out Date: {{reservation.checkOutDate}} <br>
-        <button (click)="deleteReservation(reservation.id)">Delete</button>
-        <button [routerLink]="['/edit', reservation.id]">Edit</button>
-    </li>
-</ul>
+        <div *ngIf="reservations.length; else noReservation">
+            <ul class="reservation-list">
+                <li *ngFor="let reservation of reservations" class="reservation-item">
+                    <div class="reservation-details">
+                        <div class="detail-row">
+                            <span class="detail-label"><i class="bi bi-person-fill"></i> Guest:</span>
+                            <span class="detail-value">{{reservation.guestName}}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label"><i class="bi bi-envelope-fill"></i> Email:</span>
+                            <span class="detail-value">{{reservation.guestEmail}}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label"><i class="bi bi-door-closed-fill"></i> Room:</span>
+                            <span class="detail-value">{{reservation.roomNumber}}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label"><i class="bi bi-calendar-check-fill"></i> Check-In:</span>
+                            <span class="detail-value">{{reservation.checkInDate | date:'MMM d, yyyy'}}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label"><i class="bi bi-calendar-x-fill"></i> Check-Out:</span>
+                            <span class="detail-value">{{reservation.checkOutDate | date:'MMM d, yyyy'}}</span>
+                        </div>
+                    </div>
 
-<ng-template #noReservation>
-    <p>No Reservation Available</p>
-</ng-template>
+                    <div class="action-buttons">
+                        <button class="btn btn-action btn-edit" [routerLink]="['/edit', reservation.id]">
+                            <i class="bi bi-pencil-square"></i> <span>Edit</span>
+                        </button>
+                        <button class="btn btn-action btn-delete" (click)="deleteReservation(reservation.id)">
+                            <i class="bi bi-trash-fill"></i> <span>Delete</span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <ng-template #noReservation>
+            <div class="no-reservations">
+                <i class="bi bi-calendar-x"></i>
+                <p>No reservations available</p>
+                <!-- <button class="btn btn-action btn-edit" [routerLink]="['/new']">
+                    <i class="bi bi-plus-circle"></i> <span>Create your first reservation</span>
+                </button> -->
+            </div>
+        </ng-template>
+    </div>
+</div>

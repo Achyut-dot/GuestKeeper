@@ -1,0 +1,232 @@
+.list-container {
+    background: linear-gradient(to bottom, #1e1e1e, #171717);
+    color: var(--text-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    max-width: 900px;
+    margin: 1.5rem auto;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.list-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+}
+
+.list-title {
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.list-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+.reservation-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reservation-item {
+    background: linear-gradient(45deg, #212121, #1d1d1d);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.reservation-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.reservation-item:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-dark), var(--accent-color));
+}
+
+.reservation-details {
+    margin-bottom: 1.2rem;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 0.6rem;
+    align-items: center;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: inline-block;
+    width: 120px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.detail-label i {
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+    width: 16px;
+    text-align: center;
+}
+
+.detail-value {
+    color: var(--text-primary);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    font-size: 0.95rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    padding: 0.7rem 1.3rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    min-width: 120px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-action i {
+    margin-right: 0.5rem;
+}
+
+.btn-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.btn-action i,
+.btn-action span {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-delete {
+    background: linear-gradient(45deg, #932828, #c42f2f);
+    color: #fff;
+}
+
+.btn-delete::before {
+    background: linear-gradient(45deg, #c42f2f, #d64545);
+}
+
+.btn-edit {
+    background: linear-gradient(45deg, var(--accent-dark), var(--accent-color));
+    color: #fff;
+}
+
+.btn-edit::before {
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-hover));
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-action:hover::before {
+    opacity: 1;
+}
+
+.no-reservations {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 3rem 0;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.2);
+    border: 1px dashed #333;
+}
+
+.no-reservations i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    opacity: 0.8;
+}
+
+@media (max-width: 576px) {
+    .list-container {
+        padding: 1.5rem;
+    }
+
+    .list-title {
+        font-size: 1.5rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn-action {
+        width: 100%;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .detail-label {
+        margin-bottom: 0.3rem;
+    }
+}

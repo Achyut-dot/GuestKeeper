@@ -1,5 +1,15 @@
-<div>
-    <h2>Welcome to Hotel Reservation Portal</h2>
-    <button [routerLink]="['/new']">Create a new Reservation</button>
-    <button [routerLink]="['/list']">View all Reservation</button>
+<div class="container mt-5">
+    <div class="home-container fade-in">
+        <h2 class="home-title">Welcome to Hotel Reservation Portal</h2>
+        <div class="home-buttons">
+            <button class="btn btn-hotel" [routerLink]="['/new']">
+                <i class="bi bi-plus-circle"></i>
+                <span>Create a new Reservation</span>
+            </button>
+            <button class="btn btn-hotel" [routerLink]="['/list']">
+                <i class="bi bi-card-list"></i>
+                <span>View all Reservations</span>
+            </button>
+        </div>
+    </div>
 </div>

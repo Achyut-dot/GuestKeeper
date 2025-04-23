@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ReservationFormComponent implements OnInit {
 
   reservationForm: FormGroup = new FormGroup({});
+  isEditMode: boolean = false; 
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,6 +32,7 @@ export class ReservationFormComponent implements OnInit {
     let id = this.activatedRoute.snapshot.paramMap.get('id')
 
     if (id) {
+      this.isEditMode = true;
       let reservation = this.reservationService.getReservation(id)
 
       if (reservation)
@@ -56,5 +58,4 @@ export class ReservationFormComponent implements OnInit {
       this.router.navigate(['/list'])
     }
   }
-
 }
