@@ -1,5 +1,5 @@
 {
-  "name": "hotel-appointment-app",
+  "name": "guest-keeper",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "hotel-appointment-app": {
+    "guest-keeper": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/hotel-appointment-app",
+            "outputPath": "dist/guest-keeper",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "hotel-appointment-app:build:production"
+              "buildTarget": "guest-keeper:build:production"
             },
             "development": {
-              "buildTarget": "hotel-appointment-app:build:development"
+              "buildTarget": "guest-keeper:build:development"
             }
           },
           "defaultConfiguration": "development"
