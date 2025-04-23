@@ -1,27 +1,50 @@
-# HotelAppointmentApp
+# GuestKeeper
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+**GuestKeeper** is a user-friendly reservation management application built with **Angular**. It allows users to create, edit, delete, and view guest reservations efficiently. All data is stored locally using the browser’s **localStorage**, making it lightweight and simple to deploy without a backend.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- 📝 **Create Reservations**: Add new guest reservations with ease.
+- ✏️ **Edit Reservations**: Modify existing reservation details.
+- ❌ **Delete Reservations**: Remove reservations when no longer needed.
+- 👀 **View Reservations**: Browse all current reservations in an organised list.
+- 💾 **Local Storage**: All data is stored in the browser's local storage, ensuring fast performance and offline accessibility.
 
-## Code scaffolding
+## Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Framework**: Angular
+- **Language**: TypeScript, HTML, CSS
+- **Storage**: Browser `localStorage`
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To run the project locally, follow these steps:
 
-## Running unit tests
+### Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Node.js and npm installed
+- Angular CLI installed globally:  
+  ```bash
+  npm install -g @angular/cli
+  ```
 
-## Running end-to-end tests
+### Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/guestkeeper.git
+   cd guestkeeper
+   ```
 
-## Further help
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. Start the development server:
+   ```bash
+   ng serve
+   ```
+
+4. Open your browser and navigate to:  
+   `http://localhost:4200`
