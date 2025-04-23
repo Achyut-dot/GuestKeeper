@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Reservation } from '../models/reservation';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ReservationService {
+export class ReservationService implements OnInit{
 
   private reservations: Reservation[] = [];
 
@@ -12,6 +12,11 @@ export class ReservationService {
     let savedReservations = localStorage.getItem("reservations");
     this.reservations = savedReservations ? JSON.parse(savedReservations) : [];
   }
+
+ngOnInit(): void {
+    console.log(localStorage.getItem("reservations"), "local data");
+    
+}
 
   //CRUD Operations
 
@@ -38,8 +43,13 @@ export class ReservationService {
   }
 
   updateReservation(id: string, updateReservation: Reservation): void {
-    let index = this.reservations.findIndex(res => res.id === id);
-    this.reservations[index] = updateReservation;
-    localStorage.setItem("reservations", JSON.stringify(this.reservations));
+    debugger
+    const index = this.reservations.findIndex(res => res.id === id);
+    if (index !== -1) {
+      updateReservation.id = id;
+      this.reservations[index] = updateReservation;
+      localStorage.setItem("reservations", JSON.stringify(this.reservations));
+    }
   }
+  
 }
