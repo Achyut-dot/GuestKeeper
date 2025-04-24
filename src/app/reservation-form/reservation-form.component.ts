@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ReservationFormComponent implements OnInit {
 
   reservationForm: FormGroup = new FormGroup({});
-  isEditMode: boolean = false; 
+  isEditMode: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,10 +33,12 @@ export class ReservationFormComponent implements OnInit {
 
     if (id) {
       this.isEditMode = true;
-      let reservation = this.reservationService.getReservation(id)
+      let reservation = this.reservationService.getReservation(id).subscribe(reservation => {
 
-      if (reservation)
-        this.reservationForm.patchValue(reservation)
+        if (reservation)
+          this.reservationForm.patchValue(reservation)
+      })
+
     }
   }
 
@@ -48,11 +50,15 @@ export class ReservationFormComponent implements OnInit {
 
       if (id) {
         // Update
-        this.reservationService.updateReservation(id, reservation)
+        this.reservationService.updateReservation(id, reservation).subscribe(() => {
+          console.log("Update Request Processed")
+        })
       }
       else {
         // New
-        this.reservationService.addReservation(reservation)
+        this.reservationService.addReservation(reservation).subscribe(() => {
+          console.log("Create Request Processed")
+        })
       }
 
       this.router.navigate(['/list'])
